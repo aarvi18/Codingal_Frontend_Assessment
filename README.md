@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# Codingal Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a frontend assessment for Codingal, built using ReactJS. It includes a responsive navbar with a countdown timer and a modal, as well as a paginated posts page with infinite scrolling.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **ReactJS**: Core framework
+- **CSS Flexbox**: Used for layout styling
+- **TypeScript (Bonus)**: Provides type safety
+- **TailwindCSS (Bonus)**: Utility-first CSS framework
+- **React Router**: For navigation
+- **React Query**: For API data fetching
+- **Framer Motion (Bonus)**: For animations
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Part 1: Responsive Navbar
+- **Normal and Mobile Views**: Adaptive design for different screen sizes
+- **Countdown Timer**: Starts at 10 minutes and counts down
+- **End Class Button**: Opens a modal with two actions:
+  - "End Class": Closes modal and stops timer
+  - "Cancel": Closes modal but keeps timer running
+- **Hamburger Menu**: Expands into a dropdown on mobile view
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Part 2: Posts Page (`/posts`)
+- **Fetch Posts from API**: Uses [JSONPlaceholder API](https://jsonplaceholder.typicode.com/posts)
+- **Infinite Scrolling**: Loads 10 posts at a time
+- **Loading Indicator**: Shows a loader while fetching data
+- **Error Handling**: Handles API failures gracefully
+- **Animations**: Smooth transitions for UI elements
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation & Setup
+```sh
+# Clone the repository
+git clone <repo-url>
+cd codingal-assessment
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## File Structure
 ```
+/src
+  /components      # Reusable UI components
+  /pages          # Page components
+  /hooks          # Custom hooks
+  /utils          # Helper functions
+  /styles        # Global styles
+```
+
+## How to Run
+1. **Navbar**: Check responsive behavior, countdown, and modal functionality.
+2. **Posts Page**: Scroll down to load more posts with infinite scrolling.
+
+## Future Improvements
+- Implement authentication for user-based interactions.
+- Add unit tests using Jest and React Testing Library.
+
+---
+This project follows best practices in React development, ensuring scalability and maintainability.
