@@ -16,12 +16,16 @@ This project is a frontend assessment for Codingal, built using ReactJS. It incl
 
 ### Part 1: Responsive Navbar
 - **Normal and Mobile Views**: Adaptive design for different screen sizes
-![Normal and Mobile Views](photos/Desktop Modal.jpg)
 - **Countdown Timer**: Starts at 10 minutes and counts down
 - **End Class Button**: Opens a modal with two actions:
   - "End Class": Closes modal and stops timer
   - "Cancel": Closes modal but keeps timer running
 - **Hamburger Menu**: Expands into a dropdown on mobile view
+  ![Normal Views](./photos/Desktop%20Navbar.jpg)
+  ![Normal Views](./photos/Desktop%20Modal.jpg)
+  <img src="./photos/Mobile%20Home.jpg" alt="Mobile Views" width="300">
+  <img src="./photos/Mobile%20Navbar.jpg" alt="Mobile Views" width="300">
+  <img src="./photos/Mobile%20Modal.jpg" alt="Mobile Views" width="300">
 
 ### Part 2: Posts Page (`/posts`)
 - **Fetch Posts from API**: Uses [JSONPlaceholder API](https://jsonplaceholder.typicode.com/posts)
@@ -29,6 +33,8 @@ This project is a frontend assessment for Codingal, built using ReactJS. It incl
 - **Loading Indicator**: Shows a loader while fetching data
 - **Error Handling**: Handles API failures gracefully
 - **Animations**: Smooth transitions for UI elements
+![Normal Views](./photos/Desktop%20Post.jpg)
+<img src="./photos/Mobile%20Post.jpg" alt="Mobile Views" width="300">
 
 ## Installation & Setup
 ```sh
