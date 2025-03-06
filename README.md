@@ -16,6 +16,7 @@ This project is a frontend assessment for Codingal, built using ReactJS. It incl
 
 ### Part 1: Responsive Navbar
 - **Normal and Mobile Views**: Adaptive design for different screen sizes
+![Normal and Mobile Views](photos/Desktop Modal.jpg)
 - **Countdown Timer**: Starts at 10 minutes and counts down
 - **End Class Button**: Opens a modal with two actions:
   - "End Class": Closes modal and stops timer
