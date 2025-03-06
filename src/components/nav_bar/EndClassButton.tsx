@@ -1,5 +1,5 @@
 import { useState } from "react";
-import EndClassModal from "../models/EndClassModal";
+import EndClassModal from "../modals/EndClassModals/EndClassModal";
 
 const EndClassButton: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
