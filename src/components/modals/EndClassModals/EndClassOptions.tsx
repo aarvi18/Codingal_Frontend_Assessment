@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Check } from "lucide-react";
 import EndClassSubOptions from "../EndClassModals/EndClassSubOptions";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface EndClassOptionsProps {
     selectedOption: string;
@@ -35,9 +36,19 @@ const EndClassOptions: React.FC<EndClassOptionsProps> = ({ selectedOption, setSe
                     </span>
                 </label>
             ))}
-            {selectedOption === "Class Interrupted/Aborted" && (
-                <EndClassSubOptions subOption={subOption} setSubOption={setSubOption} />
-            )}
+            {/* Animate Presence to smoothly show/hide sub-options */}
+            <AnimatePresence>
+                {selectedOption === "Class Interrupted/Aborted" && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                        <EndClassSubOptions subOption={subOption} setSubOption={setSubOption} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Check } from "lucide-react"; // Import check icon from Lucide React
+import { Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 
 interface EndClassSubOptionsProps {
     subOption: string;
@@ -12,7 +13,6 @@ const EndClassSubOptions: React.FC<EndClassSubOptionsProps> = ({ subOption, setS
     return (
         <div className="pl-6 space-y-2">
             {["Student didn't show up for the class.", "Student didn't show any interest.", "Student got disconnected.", "I got disconnected.", "Other"].map((option) => (
-
                 <label key={option} className="flex items-center space-x-2 cursor-pointer">
                     <div className="relative w-5 h-5">
                         <input
@@ -33,22 +33,28 @@ const EndClassSubOptions: React.FC<EndClassSubOptionsProps> = ({ subOption, setS
                             )}
                         </div>
                     </div>
-                    <span>
-                        {option}
-                    </span>
+                    <span>{option}</span>
                 </label>
-
-
             ))}
-            {subOption === "Other" && (
-                <textarea
-                placeholder="Type here"
-                value={otherReason}
-                onChange={(e) => setOtherReason(e.target.value)}
-                className="border p-1 w-full rounded border-gray-200 focus:outline-none focus:ring-0"
-            />
-            
-            )}
+
+            {/* AnimatePresence ensures smooth exit animations */}
+            <AnimatePresence>
+                {subOption === "Other" && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                        <textarea
+                            placeholder="Type here"
+                            value={otherReason}
+                            onChange={(e) => setOtherReason(e.target.value)}
+                            className="border p-1 w-full rounded border-gray-200 focus:outline-none focus:ring-0"
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
