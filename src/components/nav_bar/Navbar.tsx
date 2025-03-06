@@ -4,6 +4,7 @@ import { Timer } from "../nav_bar/Timer";
 import EndClassButton from "./EndClassButton";
 import MobileMenuButton from "./MobileMenuButton";
 import { LessonTitleRight } from "./LessonTitle";
+import PostButton from "./PostButton";
 
 // Creating a Timer Context
 const TimerContext = createContext({ time: 600, stopTimer: () => { } });
@@ -34,6 +35,7 @@ const Navbar: React.FC = () => {
             <LessonTitleRight />
             <Timer time={time} />
             <EndClassButton />
+            <PostButton />
           </div>
           <MobileMenuButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
         </div>
@@ -45,6 +47,7 @@ const Navbar: React.FC = () => {
             <div className="md:hidden flex flex-row justify-between gap-4 mt-3 bg-orange-100 p-4">
               <Timer time={time} />
               <EndClassButton />
+              <PostButton />
             </div>
           </div>
         )}
