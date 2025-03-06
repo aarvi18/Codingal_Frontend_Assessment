@@ -29,12 +29,20 @@ const Navbar: React.FC = () => {
       <nav className="bg-white text-black p-3 shadow-md border-b border-gray-200">
         <div className="container mx-auto flex justify-between items-center">
           <LogoSection />
-          <div className="flex items-center space-x-4 md:space-x-6">
+          <div className="hidden md:flex items-center space-x-4">
             <Timer time={time} />
             <EndClassButton />
-            <MobileMenuButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
           </div>
+          <MobileMenuButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden flex flex-row items-center justify-between gap-4 mt-3 bg-orange-100 p-4">
+            <Timer time={time} />
+            <EndClassButton />
+          </div>
+        )}
       </nav>
     </TimerContext.Provider>
   );

@@ -5,5 +5,5 @@ export const Timer: React.FC<{ time: number }> = ({ time }) => {
     return `${minutes < 10 ? `0${minutes}` : minutes}:${secs < 10 ? `0${secs}` : secs}`;
   };
 
-  return <span className="text-gray-600 font-medium text-lg hidden md:block">{formatTime(time)}</span>;
+  return <span className="text-gray-600 font-medium text-lg md:block">{formatTime(time)}</span>;
 };
