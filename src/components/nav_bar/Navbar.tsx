@@ -3,9 +3,10 @@ import LogoSection from "./LogoSection";
 import { Timer } from "../nav_bar/Timer";
 import EndClassButton from "./EndClassButton";
 import MobileMenuButton from "./MobileMenuButton";
+import { LessonTitleRight } from "./LessonTitle";
 
 // Creating a Timer Context
-const TimerContext = createContext({ time: 600, stopTimer: () => {} });
+const TimerContext = createContext({ time: 600, stopTimer: () => { } });
 
 export const useTimer = () => useContext(TimerContext);
 
@@ -30,6 +31,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto flex justify-between items-center">
           <LogoSection />
           <div className="hidden md:flex items-center space-x-4">
+            <LessonTitleRight />
             <Timer time={time} />
             <EndClassButton />
           </div>
@@ -38,9 +40,12 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden flex flex-row items-center justify-between gap-4 mt-3 bg-orange-100 p-4">
-            <Timer time={time} />
-            <EndClassButton />
+          <div className="md:hidden flex flex-col text-center gap-4 mt-3 bg-orange-100 p-4">
+            <LessonTitleRight />
+            <div className="md:hidden flex flex-row justify-between gap-4 mt-3 bg-orange-100 p-4">
+              <Timer time={time} />
+              <EndClassButton />
+            </div>
           </div>
         )}
       </nav>
