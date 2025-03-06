@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import LogoSection from "./LogoSection";
 import { Timer } from "../nav_bar/Timer";
 import EndClassButton from "./EndClassButton";
@@ -7,7 +8,7 @@ import { LessonTitleRight } from "./LessonTitle";
 import PostButton from "./PostButton";
 
 // Creating a Timer Context
-const TimerContext = createContext({ time: 600, stopTimer: () => { } });
+const TimerContext = createContext({ time: 600, stopTimer: () => {} });
 
 export const useTimer = () => useContext(TimerContext);
 
@@ -40,17 +41,25 @@ const Navbar: React.FC = () => {
           <MobileMenuButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden flex flex-col text-center gap-4 mt-3 bg-orange-100 p-4">
-            <LessonTitleRight />
-            <div className="md:hidden flex flex-row justify-between gap-4 mt-3 bg-orange-100 p-4">
-              <Timer time={time} />
-              <EndClassButton />
-              <PostButton />
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu with Animation */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.02, ease: "easeInOut" }}
+              className="md:hidden flex flex-col text-center gap-4 mt-3 bg-orange-100 p-4 rounded-lg shadow-md"
+            >
+              <LessonTitleRight />
+              <div className="flex flex-row justify-between gap-4">
+                <Timer time={time} />
+                <EndClassButton />
+                <PostButton />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </TimerContext.Provider>
   );
