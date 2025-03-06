@@ -32,8 +32,8 @@ This project is a frontend assessment for Codingal, built using ReactJS. It incl
 ## Installation & Setup
 ```sh
 # Clone the repository
-git clone <repo-url>
-cd codingal-assessment
+git clone https://github.com/aarvi18/Codingal_Frontend_Assessment.git
+cd Codingal_Frontend_Assessment
 
 # Install dependencies
 npm install
@@ -45,11 +45,13 @@ npm run dev
 ## File Structure
 ```
 /src
-  /components      # Reusable UI components
-  /pages          # Page components
-  /hooks          # Custom hooks
-  /utils          # Helper functions
-  /styles        # Global styles
+  /assets                   # Logos
+  /components               # Reusable UI components
+      /base_components      # All small small components
+      /modals               # All modals
+        /EndClassModals     # EndClassModals
+      /nav_bar              # Nav bar
+  /pages                    # Page components
 ```
 
 ## How to Run
